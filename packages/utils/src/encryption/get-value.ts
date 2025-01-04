@@ -1,3 +1,3 @@
 export const getValue = () => {
-  return "This is teh return value of an external function";
+  return "This is the return value of an external function";
 };

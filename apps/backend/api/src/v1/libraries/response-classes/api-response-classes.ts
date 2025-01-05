@@ -22,9 +22,9 @@ export class ApiResponse {
   };
 
   static Failure = class extends ApiResponse {
-    errors?: string[];
+    errors?: ApiResponseErrorType;
 
-    constructor(message: string, errors: ApiResponseErrorType) {
+    constructor(message: string, errors?: ApiResponseErrorType) {
       super(false, message);
       this.errors = errors;
     }

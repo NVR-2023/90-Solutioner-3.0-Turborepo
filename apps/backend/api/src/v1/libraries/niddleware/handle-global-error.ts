@@ -9,9 +9,9 @@ export const handleGlobalError = (
   _next: NextFunction
 ) => {
   if (!(error instanceof OperationalError)) {
-    //shut down server
+    const apiErrorResponse = new ApiResponse.Failure("An unexpected server error occurred");
+    return response.status(500).json(apiErrorResponse);
   }
-
   const apiErrorResponse = new ApiResponse.Failure(error.message, error?.errors);
   return response.status(error.httpStatusCode).json(apiErrorResponse);
 };
